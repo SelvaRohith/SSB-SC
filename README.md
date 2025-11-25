@@ -51,11 +51,47 @@ Model Waveform
 <img width="704" height="178" alt="image" src="https://github.com/user-attachments/assets/32ee29b3-0d95-4192-9762-972d50c05c90" />
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
-Program
+Program:
+```
+Ac=22.6; 
+fc=588.23; 
+Am=11.3; 
+fm=610; 
+fs=25000; 
+t=0:1/fs:2/fm; 
+Wm=2*3.14*fm; 
+Wc=2*3.14*fc; 
+Em=Am*sin(2*3.14*fm*t); 
+subplot(2,2,1); 
+title('Message'); 
+plot(t,Em); 
+Ec=Ac*sin(2*3.14*fc*t); 
+subplot(2,2,2); 
+title('Carrier'); 
+plot(t,Ec); 
+Edsbsc1=((Am/2)*cos((Wc-Wm)*t))-((Am/2)*cos((Wc+Wm)*t)); 
+Edsbsc2=((Am/2)*cos((Wc-Wm)*t))+((Am/2)*cos((Wc+Wm)*t)); 
+Elsb=Edsbsc1+Edsbsc2; 
+subplot(2,2,3); 
+title('Lsb'); 
+plot(t,Elsb); 
+Eusb=Edsbsc2-Edsbsc1; 
+subplot(2,2,4); 
+title('Usb'); 
+plot(t,Eusb);
+```
 
-OUTPUT WAVEFORM
+OUTPUT WAVEFORM :
+<img width="1661" height="1061" alt="Screenshot 2025-10-27 212253 1" src="https://github.com/user-attachments/assets/c6555701-ea3f-4761-bb54-c6c975e3c907" />
 
-TABULATION
+
+TABULATION:
+
+![WhatsApp Image 2025-11-25 at 22 08 38_be02597e](https://github.com/user-attachments/assets/4f74d839-b974-4445-be3f-f4bd2160322a)
+
+![WhatsApp Image 2025-11-25 at 22 08 36_29794c41](https://github.com/user-attachments/assets/a4a47930-a1f1-47ed-96b2-c2e868786ef7)
+
+
 
 
 
